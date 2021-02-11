@@ -96,7 +96,7 @@ class Magic_8:
             else:
                 current_run = 1
                 last = item
-            if current_run > longest_run_val:
+            if current_run > longest_run:
                 longest_run_val = last
                 longest_run =  current_run
         return "longest run was length of {} for index {}".format(longest_run, longest_run_val)
