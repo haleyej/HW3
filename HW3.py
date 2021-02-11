@@ -78,7 +78,28 @@ class Magic_8:
     # A run is a repetition of the same number consecutively in a list.
     # Ex: If 10 random answers are  [1,5,6,3,2,4,1,4,4,4] then three 4's is the longest run
     # hence the function should return "longest run was length of 3 for index 4
-
+    def generate_n_responses(self, num):
+        self.answer_history_list = []
+        hist_list = []
+        for i in range(num):
+            response = self.shake_ball()
+            idx = self.answer_list.index(response)
+            print ("Rolled a: {}, i.e. {}".format(response, idx))
+            hist_list.append(idx)
+        last = -1
+        longest_run_val = -1 
+        longest_run = 0
+        current_run = 0
+        for item in hist_list:
+            if item == last:
+                 current_run += 1
+            else:
+                current_run = 1
+                last = item
+            if current_run > longest_run_val:
+                longest_run_val = last
+                longest_run =  current_run
+        return "longest run was length of {} for index {}".format(longest_run, longest_run_val)
     
  
 def main():
